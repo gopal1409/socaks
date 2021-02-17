@@ -1,0 +1,15 @@
+#whenever you write down a defination in kubernetes you have follow this format
+apiVersion: v1 #this is the api version for pod
+kind: Pod
+metadata: #Dictinary
+  name: myapp-pod #this will be the name of the pod 
+  labels: #Dictionary this will create a label inside your pod
+    app: myapp 
+spec: #once pod get created with this name inside the pod i want to deploy a container
+  containers: #list
+    - name: myapp #this will be the name of container
+      image: stacksimplify/kubenginx:1.0.0 #this will be the image of the ocntainer
+      ports: #i am exposing my container internally in port 80
+        - containerPort: 80
+
+        #to apply the same kubectl apply -f pod-defination.yaml
