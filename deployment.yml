@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment # it will invoker the deployment api
+metadata:
+  name: myapp3-deployment #this is the name of the deployment api which will be cresated in kubernetes cluster
+spec:
+  replicas: 3 #i want to create three pod
+  selector: #all this three pod will have a lablem of app:myapp3
+    matchLabels:
+      app: myapp3
+  template:
+    metadata:
+      name: myapp3-pod
+      labels:
+        app: myapp3 
+    spec:
+      containers:
+        - name: myapp3-container
+          image: stacksimplify/kubenginx:3.0.0
+          ports:
+            - containerPort: 80
+   # deployment name myapp3-deployment is created with .metadata.name field
+# a deployment create three replicas pod indicate by .spec.replicas filed
+# the .spec.selector field define how the deployment find which pod to manage
+# we select a label that is defined in pod template app:myapp3
