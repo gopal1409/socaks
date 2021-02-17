@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: myapp3-container
-          image: stacksimplify/kubenginx:3.0.0
+          image: stacksimplify/kubenginx:2.0.0
           ports:
             - containerPort: 80
    # deployment name myapp3-deployment is created with .metadata.name field
